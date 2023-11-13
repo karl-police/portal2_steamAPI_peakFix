@@ -1,6 +1,6 @@
 # Portal 2 Steam API Peak Fix
 
-There's a bug in Portal 2: https://github.com/ValveSoftware/portal2/issues/414
+There's a bug in Portal 2: https://github.com/ValveSoftware/portal2/issues/414<br>
 I reported it a long time ago, but I never really knew the exact cause of this issue.
 
 Much later, I started to do precise debugging regarding that issue, and managed to figure out the exact cause.
