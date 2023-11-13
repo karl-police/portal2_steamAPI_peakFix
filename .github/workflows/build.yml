@@ -6,14 +6,13 @@ on: workflow_dispatch
 jobs:
   build_and_test:
     name: Project
-    runs-on: ${{ matrix.config.os }}
-    #runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        #os: [windows-latest]
-        config:
-          - { name: "Windows MSVC", os: windows-latest, cc: "cl", cxx: "cl" }
+        os: [windows-latest]
+        #config:
+          #- { name: "Windows MSVC", os: windows-latest, cc: "cl", cxx: "cl" }
           #- { name: "Ubuntu gcc", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
           #- { name: "MacOS clang", os: macos-latest, cc: "clang", cxx: "clang++" }
 
@@ -28,17 +27,55 @@ jobs:
 
       - name: Add cl.exe to PATH
         uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
   
       - name: Checkout Ninja
         uses: ashutoshvarma/setup-ninja@master
 
+      # the .. means it goes a path back
+      # we want the build files to generate inside a build directory, to run --build on
       - name: CMake Build
         run: |
-          cmake -G Ninja . --preset x86-release
+          mkdir out
+          cd out
+          cmake -G Ninja .. --preset x86-release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          cd build/x86-release
+          cmake --build .
 
-      - name: Upload build artifacts
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: output
+          name: output-windows
+          path: |
+            out
+
+  # Linux and stuff
+  build_2:
+    name: Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x86
+
+      - name: CMake Build
+        run: |
+          mkdir out
+          cd out
+          cmake ..
+          cmake --build .
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-linux
           path: |
             out
