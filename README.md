@@ -54,4 +54,4 @@ You're free to re-name the ``.dll`` to whatever you want, just make sure to upda
 
 ## Other
 
-Thanks to everyone that has showed me things related to Plugin creation. Especially members from AlliedModders and the Source Engine.
+Thanks to everyone that has showed me things related to Plugin creation. Especially members from AlliedModders, Source Engine and pajlada's Twitch Chat.
