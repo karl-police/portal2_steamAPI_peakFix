@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_library (portal2_steamAPI_peakFix SHARED  "dll_plugin.cpp" "modules/basehandle.h" )
+add_library (portal2_steamAPI_peakFix SHARED "dll_plugin.cpp")
 
 # Add /include as header file paths
 target_include_directories(portal2_steamAPI_peakFix PRIVATE "include")

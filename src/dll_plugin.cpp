@@ -4,14 +4,12 @@
 
 #include "dll_plugin.h"
 #include "steam_api_callbacks.h"
-//#include "engine.h"
 
 bool g_isPluginLoaded = false;
 
 
 HMODULE MODULE_tier0;
 HMODULE MODULE_steam_api;
-//HMODULE MODULE_engine;
 
 
 typedef void (*pFunc_SteamAPI_RegisterCallback)(class CCallbackBase* pCallback, SteamAPICall_t hAPICall);;
@@ -48,7 +46,6 @@ bool CEmptyServerPlugin::Load(CreateInterfaceFn interfaceFactory, CreateInterfac
 
 	MODULE_tier0 = GetModuleHandleA("tier0.dll");
 	MODULE_steam_api = GetModuleHandleA("steam_api.dll");
-	//MODULE_engine = GetModuleHandleA("engine.dll");
 
 
 	// ConMsg
@@ -56,10 +53,6 @@ bool CEmptyServerPlugin::Load(CreateInterfaceFn interfaceFactory, CreateInterfac
 	ConMsg = (p_ConMsg)GetProcAddress(MODULE_tier0, (LPCSTR)"?ConMsg@@YAXPBDZZ");
 
 	ConMsg("[Plugin] SteamAPI Peak Fix Loaded.\n");
-
-
-	/*Engine_CreateInterface = (p_Engine_CreateInterface)GetProcAddress(MODULE_engine, "CreateInterface");
-	IVEngineClient013* engineClient = (IVEngineClient013*)Engine_CreateInterface("VEngineClient015", nullptr);*/
 
 
 	SteamAPI_RegisterCallback = (pFunc_SteamAPI_RegisterCallback)GetProcAddress(
