@@ -14,7 +14,7 @@ HMODULE MODULE_steam_api;
 
 typedef void (*pFunc_SteamAPI_RegisterCallback)(class CCallbackBase* pCallback, SteamAPICall_t hAPICall);;
 pFunc_SteamAPI_RegisterCallback SteamAPI_RegisterCallback = nullptr;
-bool g_isLoaded = false;
+
 
 void hook_SteamAPI_RegisterCallback(class CCallbackBase* pCallback, const int callback) {
 	//ConMsg("SteamAPI_RegisterCallback called: \n");
