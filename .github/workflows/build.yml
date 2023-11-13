@@ -1,0 +1,29 @@
+name: Build
+
+on: workflow_dispatch
+
+
+jobs:
+  build_and_test:
+    name: Project
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: CMake Build
+        run: cmake --build --config x86-release
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: |
+            *
