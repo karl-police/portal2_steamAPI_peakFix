@@ -49,14 +49,17 @@ This is used to hook and "override" functions. Perhaps there are other libraries
 Portal 2 doesn't have VAC and plugins load without ``-insecure`` in the Launch Options, but you can feel free to add that launch parameter.
 
 You're free to re-name the ``.dll`` to whatever you want, just make sure to update the ``.vdf`` file.
-<br>
+
+&nbsp;
 
 To see if it worked, you will see that the plugin loaded in the console, and also when it blocks that specific callback.
 
 ![image](https://github.com/karl-police/portal2_steamAPI_peakFix/assets/12023782/54902803-4388-490b-bea4-990743e563e1)
 <br>
 
-You can at any time, unload the plugin with ``plugin_unload`` and you can also load it with ``plugin_load``. But I don't recommend loading it manually, because I don't know if the callback ever unregisters itself, I haven't checked. You can use ``plugin_print`` in the console to see all loaded plugins. These are built-in commands in Portal 2 for Plugins.
+You can at any time, unload the plugin with ``plugin_unload`` and you can also load it with ``plugin_load``. But I don't recommend loading it manually, because I don't know if the callback ever unregisters itself, I haven't checked. You can use ``plugin_print`` in the console to see all loaded plugins.
+
+These are built-in commands in Portal 2 for Plugins.
 
 &nbsp;
 &nbsp;
