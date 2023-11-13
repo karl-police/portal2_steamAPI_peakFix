@@ -23,7 +23,7 @@ Blocking callback 304, doesn't seem to cause any issues, and Co-op player search
 &nbsp;
 
 ## Building
-I have especially created a **CMake** project, for _global_ building convenience.
+I have especially created a **CMake** project, for _global_ building convenience. But I have not much knowledge about it and I failed to do Linux support.
 
 You do not need to build this, as I build and put it in the **Release** section.
 
