@@ -1,4 +1,4 @@
-name: Build
+name: Build Project
 
 on: workflow_dispatch
 
@@ -6,11 +6,16 @@ on: workflow_dispatch
 jobs:
   build_and_test:
     name: Project
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.config.os }}
+    #runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [windows-latest]
+        #os: [windows-latest]
+        config:
+          - { name: "Windows MSVC", os: windows-latest, cc: "cl", cxx: "cl" }
+          #- { name: "Ubuntu gcc", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
+          #- { name: "MacOS clang", os: macos-latest, cc: "clang", cxx: "clang++" }
 
     steps:
       - name: Checkout
@@ -18,12 +23,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Add cl.exe to PATH
+        uses: ilammy/msvc-dev-cmd@v1
+  
+      - name: Checkout Ninja
+        uses: ashutoshvarma/setup-ninja@master
+
       - name: CMake Build
-        run: cmake --build --config x86-release
+        run: |
+          cmake -G Ninja . --preset x86-release
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: output
           path: |
-            *
+            out
