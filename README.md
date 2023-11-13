@@ -10,7 +10,7 @@ I don't know if someone at Valve will fix this issue, therefore I created this P
 
 &nbsp;
 
-# Explanation
+## Explanation
 If you experience lag peak issues, it may be caused by that bug. This is because Portal 2 registers a callback from the Steam API, that has the ID 304.
 This specific callback is the [``PersonaStateChange``](https://partner.steamgames.com/doc/api/ISteamFriends#GetPersonaState).
 > The friend state of the current user. (Online, Offline, In-Game, etc)
@@ -22,7 +22,7 @@ Blocking callback 304, doesn't seem to cause any issues, and Co-op player search
 &nbsp;
 &nbsp;
 
-# Building
+## Building
 I have especially created a **CMake** project, for _global_ building convenience.
 
 You do not need to build this, as I build and put it in the **Release** section.
@@ -32,14 +32,14 @@ There are a lot of build presets. You only need ``x86 Release``, because apparen
 If you do ever need to build it for 64 Bit, you need the ``.lib`` files of every dependency.
 
 
-## Dependencies
+### Dependencies
 https://github.com/microsoft/Detours - Version 4.0.1
 This is used to hook and "override" functions. Perhaps there are other libraries, I used this one.
 
 &nbsp;
 &nbsp;
 
-# Installing
+## Installing
 1. Simply build or download it from Release
 2. Create an ``addons`` folder under ``<YOUR_PORTAL_2_DIRECTORY>/portal2``. Should sorta look like this ``<YOUR_PORTAL_2_DIRECTORY>/portal2/addons``
 3. Drag in the files in the ``addons`` folder!
@@ -52,6 +52,6 @@ You're free to re-name the ``.dll`` to whatever you want, just make sure to upda
 &nbsp;
 &nbsp;
 
-# Other
+## Other
 
 Thanks to everyone that has showed me things related to Plugin creation. Especially members from AlliedModders and the Source Engine.
