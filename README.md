@@ -42,7 +42,7 @@ This is used to hook and "override" functions. Perhaps there are other libraries
 &nbsp;
 
 ## Installing
-1. Simply build or download it from Release
+1. Simply build or download it from [Release](https://github.com/karl-police/portal2_steamAPI_peakFix/releases)
 2. Create an ``addons`` folder under ``<YOUR_PORTAL_2_DIRECTORY>/portal2``. Should sorta look like this ``<YOUR_PORTAL_2_DIRECTORY>/portal2/addons``
 3. Drag in the files in the ``addons`` folder!
 
