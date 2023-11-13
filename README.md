@@ -1,5 +1,5 @@
 # Portal 2 Steam API Peak Fix
-![image](https://github.com/karl-police/portal2_steamAPI_peakFix/assets/12023782/4360ca1d-f983-437c-8218-d83af74ca405)
+<img src="https://github.com/karl-police/portal2_steamAPI_peakFix/assets/12023782/4360ca1d-f983-437c-8218-d83af74ca405" width="700"/>
 
 There's a bug in Portal 2: https://github.com/ValveSoftware/portal2/issues/414<br>
 I reported it a long time ago, but I never really knew the exact cause of this issue.
